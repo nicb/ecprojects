@@ -1,0 +1,20 @@
+<!-- $Id: welcome_admin.rhtml 1 2007-09-12 17:47:33Z nicb $ -->
+<div class="memo">
+    <h3>Welcome</h3>
+
+    <p>You are now logged into the system and you are an administrator...</p>
+    <p>
+    You get the chance to change the status of other users:
+    </p>
+	<p>
+	<table>
+	<% @users.each do 
+		|u|
+	%>
+	<tr>
+		<td width="100%"><%= link_to(u.name, :action => :admin_user, :id => u.id) %></td>
+	</tr>
+	<% end %>
+	</table>
+      
+</div>

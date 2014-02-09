@@ -1,0 +1,44 @@
+<!-- $Id: application.rhtml 1 2007-09-12 17:47:33Z nicb $ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>:<%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'ecprojects' %>
+</head>
+<body>
+<div class="header">
+<center>
+<table class="headertable">
+<tr width="100%">
+<td width="20%"></td>
+<td width="60%" align="center" style="line-height: 2em">
+	<h1>ECProjects: a Free Software Application to Develop ICT-focused EC Projects</h1>
+</td>
+<td width="20%" valign="top" align="right">
+<% if session['user'] %><%=  link_to "&#171; logout", :action => :logout; %><% end %>
+</td>
+</tr>
+</table>
+</center>
+</div>
+
+<div class="content">
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</div>
+<div class="footer">
+<%= link_to('ECProjects') %> is a
+<%= link_to(image_tag('rails.png', :width => "24", :title => "Ruby on Rails", :align => 'top', :border => '0pt'),
+	"http://www.rubyonrails.org", :confirm => "Are you sure?") %>
+application by
+<%= mail_to("nicb@sme-ccppd.org", "Nicola Bernardini",
+   :subject => "info about ECProjects", :encode => "javascript") %>.<br>
+<font size="small">$Id: application.rhtml 1 2007-09-12 17:47:33Z nicb $</font>
+</div>
+</body>
+</html>
